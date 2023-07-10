@@ -10,7 +10,7 @@ EOF
 
 touch /root/update.sh
 
-cat <<EOF >> /etc/crontab
+cat <<EOF >> /root/update.sh
 ### Update
 #!/bin/sh
 dnf check-update

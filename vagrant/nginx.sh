@@ -26,8 +26,17 @@ mv vproapp /etc/nginx/sites-available/vproapp
 rm -rf /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/vproapp /etc/nginx/sites-enabled/vproapp
 
+cat <<EOF >> /etc/hosts
+### V project
+192.168.18.201  web01
+192.168.18.202  app01
+192.168.18.203  rmq01
+192.168.18.204  mc01
+192.168.18.205  db01
+EOF
+
 #starting nginx service and firewall
-systemctl start nginx
+
 systemctl enable nginx
 systemctl restart nginx
 
