@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
     mc01.vm.box = "eurolinux-vagrant/centos-stream-9"
     mc01.vm.hostname = "mc01"
     # mc01.vm.network "private_network", ip: "192.168.518.204"
-    mc01.vm.network "public_network", ip: "192.168.518.204", bridge: "enp0s31f6"
+    mc01.vm.network "public_network", ip: "192.168.18.204", bridge: "enp0s31f6"
     mc01.vm.provider "virtualbox" do |vb|
       vb.memory = "600"
     end
