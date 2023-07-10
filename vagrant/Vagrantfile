@@ -11,6 +11,7 @@ Vagrant.configure("2") do |config|
     db01.vm.provider "virtualbox" do |vb|
       vb.memory = "800"
     end
+    db01.vm.provision "shell", path: "other.sh"
     db01.vm.provision "shell", path: "mysql.sh"
   end
   
@@ -23,7 +24,8 @@ Vagrant.configure("2") do |config|
     mc01.vm.provider "virtualbox" do |vb|
       vb.memory = "600"
     end
-    mc01.vm.provision "shell", path: "memcache.sh"  
+    mc01.vm.provision "shell", path: "memcache.sh"
+    mc01.vm.provision "shell", path: "other.sh"
   end
   
   ### RabbitMQ vm  ####
@@ -35,7 +37,8 @@ Vagrant.configure("2") do |config|
     rmq01.vm.provider "virtualbox" do |vb|
       vb.memory = "600"
     end
-    rmq01.vm.provision "shell", path: "rabbitmq.sh"  
+    rmq01.vm.provision "shell", path: "other.sh"
+    rmq01.vm.provision "shell", path: "rabbitmq.sh"
   end
   
   ### tomcat vm ###
@@ -43,7 +46,8 @@ Vagrant.configure("2") do |config|
     app01.vm.box = "eurolinux-vagrant/centos-stream-9"
     app01.vm.hostname = "app01"
     app01.vm.network "public_network", ip: "192.168.18.202", bridge: "enp0s31f6"
-    app01.vm.provision "shell", path: "tomcat.sh"  
+    app01.vm.provision "shell", path: "other.sh"
+    app01.vm.provision "shell", path: "tomcat.sh"
     app01.vm.provider "virtualbox" do |vb|
       vb.memory = "800"
     end
@@ -61,7 +65,8 @@ Vagrant.configure("2") do |config|
       # vb.gui = true
       vb.memory = "1000"
     end
-    web01.vm.provision "shell", path: "nginx.sh"  
+    # web01.vm.provision "shell", path: "other.sh"
+    web01.vm.provision "shell", path: "nginx.sh"
   end
   
 end
